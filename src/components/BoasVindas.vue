@@ -30,9 +30,6 @@ export default {
 };
 </script>
 <style>
-.be-welcome {
-  margin-top: 25px;
-}
 .card--be-welcome {
   width: 100%;
   height: 110px;
