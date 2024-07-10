@@ -36,7 +36,7 @@ export default {
   name: "CorpoDeOficiais",
   data() {
     const BASE_URL =
-      "http://www.habbo.com.br/habbo-imaging/avatarimage?&action=sit&direction=2&head_direction=3&img_format=gif&gesture=sml&frame=1&headonly=0&size=m";
+      "https://www.habbo.com.br/habbo-imaging/avatarimage?&action=sit&direction=2&head_direction=3&img_format=gif&gesture=sml&frame=1&headonly=0&size=m";
 
     const users = [
       {
