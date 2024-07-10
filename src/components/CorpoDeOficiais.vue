@@ -6,6 +6,7 @@
         alt="Brasão da Aeronáutica"
         width="auto"
         height="auto"
+        lazy="loading"
       /><br /><span>Corpo de Oficiais</span>
     </div>
     <hr />
