@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import NProgress from '../nprogress';
 
 const routes = [
   {
@@ -54,7 +55,12 @@ router.beforeEach((to, from, next) => {
   const baseTitle = 'Força Aérea Brasileira Habbo';
   document.title = `${baseTitle} - ${to.meta.title || ''}`;
   window.scrollTo(0, 0);
+  NProgress.start();
   next();
+});
+
+router.afterEach(() => {
+  NProgress.done(); 
 });
 
 export default router;
