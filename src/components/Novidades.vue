@@ -65,23 +65,78 @@
           <span class="visually-hidden">Avançar</span>
         </button>
       </div>
+
       <div class="card-footer">
-        <form id="buscar" action="#">
+        <form id="buscar" @submit.prevent="handleSubmit">
           <div class="container" style="line-height: 1.1">
             <div class="buscar-input-nickname">
               <input
                 type="text"
-                name="nickname"
-                id="nickname"
+                v-model="nickname"
                 placeholder="Digite o nickname do militar..."
               />
-              <button id="buscar-search" type="submit" for="buscar">
+              <button type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </div>
           </div>
         </form>
-        <div id="buscar-content" style="display: none"></div>
+        <div id="buscar-content" v-if="showResultado" class="mt-3">
+          <button @click="closeResultado" class="btn btn-sm btn-danger float-end">
+            Fechar
+          </button>
+          <div class="row">
+            <div class="col-md-4 d-flex flex-column align-items-center mb-3">
+              <!-- Avatar e informações à esquerda -->
+              <div class="avatar">
+                <img
+                  :src="avatarUrl"
+                  :alt="System.name"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+              <a :href="profileUrl" target="_blank" class="mt-2 btn btn-primary"
+                >Ver Perfil</a
+              >
+            </div>
+            <div class="col-md-8">
+              <!-- Informações à direita -->
+              <h3 class="mb-3">{{ System.name }}</h3>
+              <p>
+                <b>Patente:</b>
+                <span>{{
+                  System.patente ? System.patente : "Militar não alistado"
+                }}</span>
+              </p>
+              <p>
+                <b>Alistado:</b>
+                <span>{{
+                  System.data_alistamento
+                    ? formatDate(System.data_alistamento).data
+                    : "Não alistado"
+                }}</span>
+              </p>
+              <p>
+                <b>Última promoção:</b>
+                <span>{{
+                  System.ultima_promocao
+                    ? formatDate(System.ultima_promocao).data
+                    : "Sem promoção"
+                }}</span>
+              </p>
+              <p>
+                <b>Promovido por:</b>
+                <a :href="promovidoPorUrl" target="_blank">{{ System.promovido_por }}</a>
+              </p>
+              <p>
+                <b>Status:</b>
+                <span :style="{ backgroundColor: statusColor }">{{
+                  System.status_descricao
+                }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -92,75 +147,89 @@ export default {
   name: "Novidades",
   data() {
     return {
-      carouselItems: [
-        {
-          link: "",
-          image: "https://i.imgur.com/QSWNmXp.png",
-          tooltip: "Ir a página...",
-        },
-        {
-          link: "",
-          image: "https://i.imgur.com/h9SyYH0.png",
-          tooltip: "Ir a página...",
-        },
-        {
-          link: "",
-          image: "https://i.imgur.com/fYRzUgt.png",
-          tooltip: "Ir a página...",
-        },
-      ],
+      nickname: "",
+      System: {},
+      showResultado: false,
+      avatarUrl: "",
+      profileUrl: "",
+      promovidoPorUrl: "",
+      statusColor: "",
     };
   },
-  mounted() {
-    document.addEventListener("DOMContentLoaded", this.setupForm);
-  },
   methods: {
-    setupForm() {
-      const form_buscar = document.getElementById("buscar");
+    handleSubmit() {
       const APP_URL = "https://www.fabhabbo.com";
-      form_buscar.addEventListener("submit", (event) => {
-        event.preventDefault();
-        let buscar_content = document.getElementById("buscar-content");
-        let nickname = document.getElementById("nickname");
-
-        buscar_content.removeAttribute("style");
-        buscar_content.style.display = "block";
-        buscar_content.innerHTML = `
-          <div class="d-flex justify-content-center">
-            <div class="spinner-border" style="color:white !important;" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>`;
-        fetch(`${APP_URL}/fetch/alistado`, {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            name: nickname.value,
-          }),
+      fetch(`${APP_URL}/fetch/alistado`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.nickname,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Erro na requisição");
+          }
+          return response.json();
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new error("Erro na requisição");
-            }
-            return response.json();
-          })
-          .then((dados) => {
-            if (dados.error) {
-              throw new Error(dados.error);
-            }
-
-            this.Resultado(dados.success);
-          })
-          .catch((err) => {
-            buscar_content.textContent = err.message;
-            buscar_content.style.backgroundColor = "#e40000";
-          });
-      });
+        .then((dados) => {
+          if (dados.error) {
+            throw new Error(dados.error);
+          }
+          this.System = dados.success;
+          this.avatarUrl = `http://www.habbo.com.br/habbo-imaging/avatarimage?&user=${this.System.name}&action=std&direction=3&head_direction=3&img_format=png&gesture=std&frame=1&headonly=0&size=l`;
+          this.profileUrl = `${APP_URL}/profile/${this.System.name}`;
+          this.promovidoPorUrl = `${APP_URL}/profile/${this.System.promovido_por}`;
+          this.statusColor = this.getStatusColor(this.System.status);
+          this.showResultado = true;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
-    Resultado(success) {
-      // Implement your Resultado logic here
+    closeResultado() {
+      this.showResultado = false;
+    },
+    getStatusColor(status) {
+      switch (status) {
+        case 0:
+          return "#008000"; // Ativo
+        case 1:
+          return "#d00000"; // Dispensado
+        case 2:
+          return "#d00000"; // Traicao
+        case 3:
+          return "#d00000"; // Mau Comportamento
+        case 4:
+          return "#d00000"; // Fake
+        case 5:
+          return "#e9b700"; // Aposentado
+        case 6:
+          return "#008000"; // Reservista
+        default:
+          return ""; // Status não definido
+      }
+    },
+    formatDate(date) {
+      function addZero(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+      let dataObj = new Date(date);
+
+      let dataFormatada = `${addZero(dataObj.getDate())}/${addZero(
+        dataObj.getMonth() + 1
+      )}/${dataObj.getFullYear()}`;
+      let horaFormatada = `${addZero(dataObj.getHours())}:${addZero(
+        dataObj.getMinutes()
+      )}:${addZero(dataObj.getSeconds())}`;
+
+      return {
+        data: dataFormatada,
+        hora: horaFormatada,
+      };
     },
   },
 };
