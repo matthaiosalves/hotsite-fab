@@ -21,6 +21,8 @@
           color: 'white',
           backgroundImage: 'url(' + destaque.backgroundImage + ')',
           backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
         }"
       >
         <div class="destaques-body">

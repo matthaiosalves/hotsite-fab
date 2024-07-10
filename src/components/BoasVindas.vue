@@ -75,7 +75,7 @@ export default {
   align-items: center;
   position: absolute;
   bottom: 40px;
-  left: 100px;
+  left: 205px;
   padding-top: 20px;
   padding-left: 40px;
   width: 100%;

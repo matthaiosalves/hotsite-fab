@@ -33,6 +33,12 @@ import BoasVindas from "@/components/BoasVindas.vue";
             <Informativos />
           </div>
         </div>
+
+        <div class="col-sm-12 mb-3">
+          <div class="row">
+            <BoasVindas />
+          </div>
+        </div>
       </div>
 
       <div class="row">
@@ -44,9 +50,6 @@ import BoasVindas from "@/components/BoasVindas.vue";
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
           <AcessoRapido />
-        </div>
-        <div class="col-6">
-          <BoasVindas />
         </div>
       </div>
     </section>

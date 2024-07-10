@@ -4,10 +4,11 @@
       <div class="card-header">
         <span>Fardamentos da Força Aérea Brasileira</span>
         <img
-          src="https://www.fabhabbo.com/public/icons/uniform.png"
+          src="https://www.fabhabbo.com/public/images/icons/uniform.png"
           alt="Icone do uniforme"
           width="auto"
           height="auto"
+          lazy="loading"
         />
       </div>
       <div class="card-body">
