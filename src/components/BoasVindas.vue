@@ -8,23 +8,10 @@
       <div class="card-body">
         <div>
           <img
+            v-for="(member, index) in members"
+            :key="index"
             class="new--members"
-            src="//www.habbo.com.br/habbo-imaging/avatarimage?user=DIAMANTE-NEGRO&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l"
-            alt="Novos Membros"
-          />
-          <img
-            class="new--members"
-            src="//www.habbo.com.br/habbo-imaging/avatarimage?user=DIAMANTE-NEGRO&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l"
-            alt="Novos Membros"
-          />
-          <img
-            class="new--members"
-            src="//www.habbo.com.br/habbo-imaging/avatarimage?user=DIAMANTE-NEGRO&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l"
-            alt="Novos Membros"
-          />
-          <img
-            class="new--members"
-            src="//www.habbo.com.br/habbo-imaging/avatarimage?user=DIAMANTE-NEGRO&amp;direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l"
+            :src="`//www.habbo.com.br/habbo-imaging/avatarimage?user=${member}&direction=2&head_direction=3&gesture=sml&size=l`"
             alt="Novos Membros"
           />
         </div>
@@ -32,6 +19,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      members: ["DIAMANTE-NEGRO", "DIAMANTE-NEGRO", "DIAMANTE-NEGRO", "DIAMANTE-NEGRO"],
+    };
+  },
+};
+</script>
 <style>
 .be-welcome {
   margin-top: 25px;
