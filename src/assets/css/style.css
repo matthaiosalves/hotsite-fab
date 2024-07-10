@@ -1,0 +1,734 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+:root {
+  --bg-color-gray-dark: #1c1c1c;
+  --bg-color-blue-dark: #1f4c64;
+  --bg-color-blue-Ofcourse: #47ade1;
+  --color-text-white: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  /* background-image: url(../image/bg_blue.png); */
+  background-image: url(../images/background.gif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 !important;
+  padding: 0;
+}
+
+header {
+  /* background-color: var(--bg-color-blue-Ofcourse); */
+  background-image: url(../images/bg_blue.png);
+  color: var(--color-text-white);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 30px 0;
+}
+
+main {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tooltip {
+  --bs-tooltip-color: white !important;
+  --bs-tooltip-bg: #59afdb !important;
+  --bs-tooltip-border-radius: 2px !important;
+  box-shadow: 0px 0px 1px 0.5px rgb(255, 255, 255) !important;
+  border-radius: 2px !important;
+  line-height: 1 !important;
+}
+
+.wrapper_brasilflag {
+  background-color: var(--color-text-white);
+}
+
+.wrapper_brasilflag .flag {
+  padding: 7px 0 6px;
+  width: 115px;
+  border-right: 2px solid #dfdfdf;
+}
+
+.wrapper_brasilflag .flag a {
+  display: block;
+  padding-left: 42px;
+  width: 43px;
+  background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2226%22%20height%3D%2219%22%20viewBox%3D%220%200%201000%20700%22%3E%3Cpath%20fill%3D%22%2300923F%22%20d%3D%22M0%200h1000v700H0z%22%2F%3E%3Cpath%20fill%3D%22%23F8C300%22%20d%3D%22M500%2085L85%20350l415%20265%20415-265L500%2085z%22%2F%3E%3Ccircle%20fill%3D%22%2328166F%22%20cx%3D%22499%22%20cy%3D%22350%22%20r%3D%22174%22%2F%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M395%20296c103%200%20199%2038%20272%20101%202-8%204-17%205-26-75-61-172-98-277-98-18%200-36%201-53%203-3%208-6%2016-9%2025%2020-3%2041-4%2063-4z%22%2F%3E%3C%2Fsvg%3E)
+    8px center no-repeat;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  font-size: 10.5pt;
+}
+
+.wrapper_header a {
+  vertical-align: top;
+}
+
+.fab_logo_name {
+  display: flex;
+  align-items: center;
+  background-image: url(../images/brasaoAero.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 190px;
+}
+
+.fab_logo_name img {
+  width: 133px;
+}
+
+.fab_logo_name .divisor {
+  background-color: white;
+  width: 13px;
+  height: 100px;
+  margin: 0 0.5rem;
+  box-shadow: 4px 4px 0px 0px rgb(0 0 0 / 50%);
+}
+
+.fab_logo_name h1 {
+  font-size: 3.7rem;
+  line-height: 0.9;
+  font-weight: 800;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.nav-link {
+  border-radius: 5px;
+  transition: all 0.2s;
+  font-size: 10pt !important;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white !important;
+}
+
+.dropdown-item {
+  font-size: 10pt !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-color-blue-Ofcourse) !important;
+  color: white !important;
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color-blue-Ofcourse);
+  border-radius: 5px;
+  padding: 2px 5px;
+  white-space: nowrap;
+  flex-direction: row;
+  gap: 5px;
+  border: solid 1px var(--bg-color-blue-dark);
+}
+
+.marquee-style {
+  color: white;
+  background-color: var(--bg-color-blue-dark);
+  overflow: hidden;
+  border-radius: 5px;
+  width: 100%;
+}
+.animate-marquee {
+  padding: 3px;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.acesso_rapido .card {
+  /* background-color: var(--bg-color-blue-dark) !important; */
+  background-image: url(../images/bg_blue.png);
+  color: var(--color-text-white) !important;
+  border-color: var(--bg-color-blue-Ofcourse) !important;
+}
+
+.acesso_rapido .card-header {
+  background-color: var(--bg-color-blue-Ofcourse) !important;
+}
+
+.acesso_rapido {
+  margin-bottom: 1rem;
+}
+
+.acesso_rapido ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-white);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.acesso_rapido li a {
+  display: flex;
+  align-items: center;
+  padding: 5px 2rem;
+  width: 100%;
+  min-height: 50px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s;
+  padding: 15px 15px;
+}
+
+.acesso_rapido li a:hover {
+  background: linear-gradient(
+    to right,
+    var(--bg-color-blue-Ofcourse) 0%,
+    var(--bg-color-blue-dark) 100%
+  );
+  transition: all 0.2s;
+}
+
+.acesso_rapido li a:hover img {
+  opacity: 0.3;
+  transition: opacity 0.1s;
+}
+
+.acesso_rapido li a img {
+  position: absolute;
+  top: 5px;
+  left: 17px;
+  transition: opacity 0.1s;
+  margin-right: 5px;
+}
+
+.acesso_rapido li a span {
+  font-weight: 700;
+  font-size: 12pt;
+  vertical-align: middle;
+  color: var(--color-text-white);
+  text-transform: none !important;
+  margin-left: 2.5rem;
+}
+
+.informativo .card {
+  /* background-color: #5cc9ff !important; */
+  background-image: url(../assets/images/bg_blue.png);
+  padding: 0 10px;
+  text-align: start;
+}
+
+.informativo .infor-content {
+  position: relative;
+  padding-top: 10px;
+}
+
+.informativo .infor-content .infor-text {
+  float: left;
+}
+.informativo .infor-content .infor-text-name {
+  color: white;
+  background-color: var(--bg-color-blue-Ofcourse);
+  padding: 2px 3px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.informativo .infor-content img {
+  position: absolute;
+  top: -11px;
+  right: -28px;
+  transform: scale(0.55);
+  border-radius: 50%;
+}
+
+.novidades .card {
+  background-color: var(--bg-color-blue-dark);
+}
+
+.novidades .card-header {
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+  font-weight: 700;
+  font-size: 14pt;
+}
+
+.novidades .card-footer {
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+}
+
+#buscar {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#buscar .buscar-input-nickname {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  background-color: var(--bg-color-blue-dark);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#buscar .buscar-input-nickname input {
+  flex: 1 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 100%;
+  color: #2e7093;
+  padding: 10px 2rem;
+}
+#buscar .buscar-input-nickname input:focus {
+  color: white;
+  outline: none;
+}
+
+#buscar .buscar-input-nickname button {
+  flex: 0 1;
+  background-color: var(--bg-color-blue-dark);
+  color: white;
+  border: none;
+  transition: box-shadow 0.2s, background-color 0.2s;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0 1.1rem;
+}
+
+#buscar .buscar-input-nickname button:hover {
+  background-color: var(--bg-color-blue-Ofcourse);
+  box-shadow: 0.1px 0 10px #e7e7e7;
+}
+
+#buscar .buscar-input-nickname button img {
+  width: 29px;
+}
+
+#buscar-content {
+  margin: 10px;
+  padding: 25px 10px;
+  background-color: var(--bg-color-blue-dark);
+  border-radius: 5px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+#buscar-content #buscar-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: var(--bg-color-blue-Ofcourse);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border: none;
+  color: white;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+#buscar-content #buscar-close:hover {
+  background-color: white;
+  color: #333;
+}
+
+#buscar-content .avatar {
+  background-image: url(https://m.media-amazon.com/images/I/41HQo-cHthL._AC_UF894,1000_QL80_.jpg);
+  border-radius: 100%;
+  border: solid white 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-position: -12px;
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+
+#buscar-content .buscar-left a {
+  text-decoration: none;
+  color: white;
+  background-color: var(--bg-color-blue-Ofcourse);
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 9pt;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+#buscar-content .buscar-left a:hover {
+  background-color: white;
+  color: #333;
+}
+#buscar-content .avatar img {
+  margin-bottom: -49px;
+}
+
+#buscar-content .buscar-right #box-medalhas {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#buscar-content .buscar-right #box-medalhas .box-medalha-content {
+  width: 70px;
+  height: auto;
+  margin-right: 5px;
+  margin-top: 2px;
+  position: relative;
+}
+
+#buscar-content .buscar-right #box-medalhas .box-medalha-content .medalha {
+  background-image: url(https://exbrhbofc.net/images/layou1.png);
+  border: 1px #ecdbbc solid;
+  width: 100%;
+  height: 20px;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+#buscar-content
+  .buscar-right
+  #box-medalhas
+  .box-medalha-content
+  .medalha
+  .emblema {
+  width: 14px;
+  height: 14px;
+  margin-left: calc((100% - 14px) / 2);
+  margin-top: 2px;
+  position: absolute;
+}
+
+#buscar-content
+  .buscar-right
+  #box-medalhas
+  .box-medalha-content
+  .medalha
+  .faixa1 {
+  background-image: url(https://exbrhbofc.net/images/layou1.png);
+  width: 23%;
+  margin-left: 18%;
+  height: 18px;
+  float: left;
+}
+#buscar-content
+  .buscar-right
+  #box-medalhas
+  .box-medalha-content
+  .medalha
+  .faixa2 {
+  background-image: url(https://exbrhbofc.net/images/layou1.png);
+  width: 23%;
+  margin-left: 59%;
+  height: 18px;
+}
+
+.conteudos .card {
+  background-color: var(--bg-color-blue-dark);
+  color: white !important;
+}
+
+.conteudos .card-header {
+  background-color: var(--bg-color-blue-Ofcourse);
+}
+
+.conteudos ul {
+  padding: 0;
+  margin: 0;
+}
+
+.conteudos ul li {
+  list-style-type: none;
+}
+
+.conteudos ul li a {
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  color: white;
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+.conteudos ul li a:hover {
+  background: linear-gradient(
+    to right,
+    var(--bg-color-blue-Ofcourse) 0%,
+    var(--bg-color-blue-dark) 100%
+  );
+}
+
+.conteudos ul li a img {
+  height: 39px;
+  width: 39px;
+  margin-right: 1rem;
+}
+.destaques .card {
+  background-color: var(--bg-color-blue-dark);
+}
+
+.destaques .card-header {
+  position: relative;
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+  box-shadow: 0px 3px 0px 0px rgb(0 0 0 / 50%);
+}
+.destaques .card-header img {
+  position: absolute;
+  bottom: -25px;
+  right: 15px;
+  border-radius: 50%;
+  border: white solid 3px;
+  z-index: 2;
+}
+.destaques .destaques-body {
+  background: linear-gradient(
+    to bottom,
+    hsl(200deg 74% 23% / 48%) 0,
+    hsl(200 52% 23% / 1) 100%
+  );
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.destaques .destaques-body img {
+  margin-left: -32px;
+  margin-bottom: -25px;
+}
+.destaques .destaques-text {
+  margin-left: -15px;
+  margin-bottom: 3rem;
+}
+.destaques .destaques-text span {
+  display: block;
+}
+.destaques .destaques-text span:nth-child(1) {
+  font-size: 8pt;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.destaques .destaques-text span:nth-child(2) {
+  font-size: 15pt;
+  font-weight: 700;
+}
+.destaques .destaques-text span:nth-child(3) {
+  font-size: 11pt;
+  font-weight: 500;
+}
+.destaques .destaques-text a {
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+  font-size: 8pt;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.destaques .card-header img {
+  position: absolute;
+  bottom: -25px;
+  right: 15px;
+  border-radius: 50%;
+  border: white solid 3px;
+  z-index: 2;
+}
+
+.destaques2 .card {
+  background-color: var(--bg-color-blue-dark);
+}
+.destaques2 .card-header {
+  position: relative;
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+  box-shadow: 0px 3px 0px 0px rgb(0 0 0 / 50%);
+}
+.destaques2 .card-header img {
+  position: absolute;
+  bottom: -25px;
+  left: 15px;
+  border-radius: 50%;
+  border: white solid 3px;
+  z-index: 2;
+}
+.destaques2 .destaques-body {
+  background: linear-gradient(
+    to bottom,
+    hsl(200deg 74% 23% / 48%) 0,
+    hsl(200 52% 23% / 1) 100%
+  );
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: row-reverse;
+}
+.destaques2 .destaques-body img {
+  margin-right: -32px;
+  margin-bottom: -25px;
+}
+.destaques2 .destaques-text {
+  margin-right: -15px;
+  margin-bottom: 3rem;
+}
+.destaques2 .destaques-text span {
+  display: block;
+}
+.destaques2 .destaques-text span:nth-child(1) {
+  font-size: 8pt;
+  opacity: 0.8;
+  font-weight: 400;
+}
+.destaques2 .destaques-text span:nth-child(2) {
+  font-size: 15pt;
+  font-weight: 700;
+}
+.destaques2 .destaques-text span:nth-child(3) {
+  font-size: 11pt;
+  font-weight: 500;
+}
+.destaques2 .destaques-text a {
+  background-color: var(--bg-color-blue-Ofcourse);
+  color: white;
+  font-size: 8pt;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.destaques2 .card-header img {
+  position: absolute;
+  bottom: -25px;
+  left: 15px;
+  border-radius: 50%;
+  border: white solid 3px;
+  z-index: 2;
+}
+
+.cdo .title {
+  padding: 0 !important;
+  line-height: 1;
+}
+
+.cdo .title img[alt="BrasÃ£o da ForÃ§a AÃ©rea Brasileira"] {
+  display: inline-block;
+}
+
+.cdo .title span {
+  font-weight: 700;
+  font-size: 14pt;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.cdo {
+  /* background-color: var(--bg-color-blue-dark); */
+  background-image: url(../images/bg_blue.png);
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: var(--color-text-white);
+  line-height: 2.5;
+  text-align: center;
+}
+
+.cdo div {
+  margin: 0;
+  padding: 7px;
+}
+
+.cdo div a {
+  text-decoration: none;
+  position: relative;
+  padding: 0 1.3rem;
+  cursor: pointer;
+}
+
+.cdo div a img {
+  position: absolute;
+  top: -50px;
+  right: -10px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--bg-color-blue-dark);
+  color: var(--color-text-white);
+  box-shadow: 0px -3px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+footer .wrapper_footer_links {
+  background-color: var(--bg-color-blue-Ofcourse);
+  padding: 10px 0px;
+}
+
+footer .wrapper_footer_links img:nth-child(1) {
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+footer .wrapper_footer_infor {
+  text-align: center;
+  padding: 10px 0px;
+}
+
+footer .wrapper_footer_infor a {
+  text-decoration: none;
+  color: var(--color-text-white);
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    margin-top: 15px;
+  }
+}
