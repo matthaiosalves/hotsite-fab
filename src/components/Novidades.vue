@@ -18,6 +18,7 @@
           </div>
         </div>
       </div>
+
       <div
         id="carouselNovidades"
         class="carousel slide carousel-fade"
@@ -31,7 +32,7 @@
             :class="{ active: index === 0 }"
             data-bs-interval="10000"
           >
-            <a :href="item.link">
+            <a :href="item.link" target="_blank">
               <img
                 :src="item.image"
                 class="d-block w-100"
@@ -81,6 +82,8 @@
             </div>
           </div>
         </form>
+
+        <!-- Resultado -->
         <div id="buscar-content" v-if="showResultado" class="mt-3">
           <button @click="closeResultado" class="btn btn-sm btn-danger float-end">
             Fechar
@@ -93,23 +96,26 @@
                   :src="avatarUrl"
                   :alt="System.name"
                   class="img-fluid rounded-circle"
+                  width="auto"
+                  height="auto"
+                  lazy="loading"
                 />
               </div>
-              <a :href="profileUrl" target="_blank" class="mt-2 btn btn-primary"
-                >Ver Perfil</a
+              <router-link :to="profileUrl" class="mt-2 btn btn-primary"
+                >Ver Perfil</router-link
               >
             </div>
             <div class="col-md-8">
               <!-- Informações à direita -->
               <h3 class="mb-3">{{ System.name }}</h3>
               <p>
-                <b>Patente:</b>
+                <strong>Patente:</strong>
                 <span>{{
                   System.patente ? System.patente : "Militar não alistado"
                 }}</span>
               </p>
               <p>
-                <b>Alistado:</b>
+                <strong>Alistado:</strong>
                 <span>{{
                   System.data_alistamento
                     ? formatDate(System.data_alistamento).data
@@ -117,7 +123,7 @@
                 }}</span>
               </p>
               <p>
-                <b>Última promoção:</b>
+                <strong>Última promoção:</strong>
                 <span>{{
                   System.ultima_promocao
                     ? formatDate(System.ultima_promocao).data
@@ -125,11 +131,13 @@
                 }}</span>
               </p>
               <p>
-                <b>Promovido por:</b>
-                <a :href="promovidoPorUrl" target="_blank">{{ System.promovido_por }}</a>
+                <strong>Promovido por:</strong>
+                <router-link :to="promovidoPorUrl">{{
+                  System.promovido_por
+                }}</router-link>
               </p>
               <p>
-                <b>Status:</b>
+                <strong>Status:</strong>
                 <span :style="{ backgroundColor: statusColor }">{{
                   System.status_descricao
                 }}</span>
@@ -154,9 +162,59 @@ export default {
       profileUrl: "",
       promovidoPorUrl: "",
       statusColor: "",
+      carouselItems: [
+        {
+          link: "",
+          image: "https://i.imgur.com/QSWNmXp.png",
+          tooltip: "Ir a página...",
+        },
+        {
+          link: "",
+          image: "https://i.imgur.com/h9SyYH0.png",
+          tooltip: "Ir a página...",
+        },
+        {
+          link: "",
+          image: "https://i.imgur.com/fYRzUgt.png",
+          tooltip: "Ir a página...",
+        },
+      ],
     };
   },
   methods: {
+    // handleSubmit() {
+    //   const APP_URL = "https://www.fabhabbo.com";
+    //   const url = new URL(`${APP_URL}/fetch/alistado`);
+    //   url.searchParams.append("name", this.nickname);
+
+    //   fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //     .then((response) => {
+    //       if (!response.ok) {
+    //         throw new Error("Erro na requisição");
+    //       }
+    //       return response.json();
+    //     })
+    //     .then((dados) => {
+    //       if (dados.error) {
+    //         throw new Error(dados.error);
+    //       }
+    //       this.System = dados.success;
+    //       this.avatarUrl = `http://www.habbo.com.br/habbo-imaging/avatarimage?&user=${this.System.name}&action=std&direction=3&head_direction=3&img_format=png&gesture=std&frame=1&headonly=0&size=l`;
+    //       this.profileUrl = `${APP_URL}/profile/${this.System.name}`;
+    //       this.promovidoPorUrl = `${APP_URL}/profile/${this.System.promovido_por}`;
+    //       this.statusColor = this.getStatusColor(this.System.status);
+    //       this.showResultado = true;
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    // },
+
     handleSubmit() {
       const APP_URL = "https://www.fabhabbo.com";
       fetch(`${APP_URL}/fetch/alistado`, {
