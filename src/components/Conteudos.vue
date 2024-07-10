@@ -5,7 +5,13 @@
       <ul>
         <li v-for="(item, index) in conteudos" :key="index">
           <a :href="item.link">
-            <img :src="item.imagem" alt="" />
+            <img
+              :src="item.imagem"
+              alt="Imagem do conteúdo"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
             <div>
               <b>{{ item.titulo }}</b>
               <br />

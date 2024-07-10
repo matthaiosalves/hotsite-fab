@@ -18,7 +18,13 @@
             :key="index"
           >
             <span>{{ farda.nome }}</span>
-            <img :src="farda.image" alt="" />
+            <img
+              :src="farda.image"
+              alt="Imagem do fardamento"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
           </div>
           <div
             class="col-md-6 farda"
@@ -26,7 +32,13 @@
             :key="index"
           >
             <span>{{ farda.nome }}</span>
-            <img :src="farda.image" alt="" />
+            <img
+              :src="farda.image"
+              alt="Imagem do fardamento"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
           </div>
         </div>
       </div>
@@ -47,7 +59,13 @@
             :key="index"
           >
             <span>{{ farda.nome }}</span>
-            <img :src="farda.image" alt="" />
+            <img
+              :src="farda.image"
+              alt="Imagem do fardamento"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
           </div>
         </div>
       </div>
@@ -68,7 +86,12 @@
             :key="index"
           >
             <span>{{ farda.nome }}</span>
-            <img :src="farda.image" alt="" />
+            <img
+              :src="farda.image"
+              alt="Imagem do fardamento"
+              width="auto"
+              height="auto"
+            />
           </div>
         </div>
       </div>
@@ -89,7 +112,12 @@
             :key="index"
           >
             <span>{{ farda.nome }}</span>
-            <img :src="farda.image" alt="" />
+            <img
+              :src="farda.image"
+              alt="Imagem do fardamento"
+              width="auto"
+              height="auto"
+            />
           </div>
         </div>
       </div>

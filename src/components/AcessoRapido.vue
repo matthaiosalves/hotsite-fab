@@ -7,11 +7,23 @@
       <ul>
         <li v-for="(item, index) in acessosRapidos" :key="index">
           <router-link :to="item.link" v-if="item.link !== '#'">
-            <img :src="item.image" :alt="item.text" width="auto" />
+            <img
+              :src="item.image"
+              :alt="item.text"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
             <span>{{ item.text }}</span>
           </router-link>
           <a :href="item.link" v-else>
-            <img :src="item.image" :alt="item.text" width="auto" />
+            <img
+              :src="item.image"
+              :alt="item.text"
+              width="auto"
+              height="auto"
+              lazy="loading"
+            />
             <span>{{ item.text }}</span>
           </a>
         </li>

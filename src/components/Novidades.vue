@@ -35,10 +35,13 @@
               <img
                 :src="item.image"
                 class="d-block w-100"
-                alt="..."
+                alt="Imagem do destaque"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
                 :data-bs-title="item.tooltip"
+                width="auto"
+                height="auto"
+                lazy="loading"
               />
             </a>
           </div>

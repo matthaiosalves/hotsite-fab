@@ -24,7 +24,13 @@
               informativo.tipo
             }}</span>
           </div>
-          <img :src="informativo.icone" alt="Icone da Fab" width="auto" height="auto" />
+          <img
+            :src="informativo.icone"
+            alt="Icone da Fab"
+            width="auto"
+            height="auto"
+            lazy="loading"
+          />
         </div>
         <p style="font-size: 9pt; color: white" class="pt-2">{{ informativo.texto }}</p>
       </div>

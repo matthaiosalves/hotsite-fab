@@ -13,6 +13,9 @@
             class="new--members"
             :src="`//www.habbo.com.br/habbo-imaging/avatarimage?user=${member}&direction=2&head_direction=3&gesture=sml&size=l`"
             alt="Novos Membros"
+            width="auto"
+            height="auto"
+            lazy="loading"
           />
         </div>
       </div>

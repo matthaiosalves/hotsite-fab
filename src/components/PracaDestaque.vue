@@ -11,6 +11,7 @@
             :data-bs-title="destaque.tooltip"
             width="auto"
             height="auto"
+            lazy="loading"
           />
         </router-link>
         <span style="font-weight: 700">{{ destaque.title }}</span>
@@ -28,6 +29,7 @@
             :alt="destaque.username"
             width="auto"
             height="auto"
+            lazy="loading"
           />
           <div class="destaques-text">
             <span>{{ destaque.username }}</span>

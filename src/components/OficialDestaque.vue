@@ -2,7 +2,6 @@
   <div class="destaques mb-3" v-for="(destaque, index) in destaques" :key="index">
     <div class="card">
       <div class="card-header">
-        <!-- Usando router-link em vez de <a> -->
         <router-link :to="{ path: '/oficiais' }">
           <img
             :src="destaque.badgeImage"
@@ -12,6 +11,7 @@
             :data-bs-title="destaque.tooltip"
             width="auto"
             height="auto"
+            lazy="loading"
           />
         </router-link>
         <span style="font-weight: 700">{{ destaque.title }}</span>
@@ -24,7 +24,13 @@
         }"
       >
         <div class="destaques-body">
-          <img :src="destaque.avatarImage" :alt="destaque.username" />
+          <img
+            :src="destaque.avatarImage"
+            :alt="destaque.username"
+            width="auto"
+            height="auto"
+            lazy="loading"
+          />
           <div class="destaques-text">
             <span>{{ destaque.username }}</span>
             <span>{{ destaque.rank }}</span>
