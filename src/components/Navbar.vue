@@ -15,22 +15,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
           <li class="nav-item">
-            <router-link
-              to="/"
-              :class="['nav-link', { active: isActive('/') }]"
-              aria-current="page"
-            >
+            <router-link to="/" class="nav-link" aria-current="page">
               Início
             </router-link>
           </li>
           <li class="nav-item dropdown">
             <router-link
               to="/instituicao"
-              :class="[
-                'nav-link',
-                'dropdown-toggle',
-                { active: isActive(['/instituicao', '/fardamentos']) },
-              ]"
+              class="nav-link dropdown-toggle"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -39,10 +31,7 @@
             </router-link>
             <ul class="dropdown-menu">
               <li>
-                <router-link
-                  to="/fardamentos"
-                  :class="['dropdown-item', { active: isActive('/fardamentos') }]"
-                >
+                <router-link to="/fardamentos" class="dropdown-item">
                   Fardamentos
                 </router-link>
               </li>
@@ -51,11 +40,7 @@
           <li class="nav-item dropdown">
             <router-link
               to="/apostilas"
-              :class="[
-                'nav-link',
-                'dropdown-toggle',
-                { active: isActive(['/apostilas', '/apostilas/peles-e-cabelos']) },
-              ]"
+              class="nav-link dropdown-toggle"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -64,13 +49,7 @@
             </router-link>
             <ul class="dropdown-menu">
               <li>
-                <router-link
-                  to="/apostilas/peles-e-cabelos"
-                  :class="[
-                    'dropdown-item',
-                    { active: isActive('/apostilas/peles-e-cabelos') },
-                  ]"
-                >
+                <router-link to="/apostilas/peles-e-cabelos" class="dropdown-item">
                   Peles e Cabelos
                 </router-link>
               </li>
@@ -83,14 +62,5 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    isActive(paths) {
-      if (Array.isArray(paths)) {
-        return paths.some((path) => this.$route.path.startsWith(path));
-      }
-      return this.$route.path === paths;
-    },
-  },
-};
+export default {};
 </script>
