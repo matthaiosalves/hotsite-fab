@@ -62,6 +62,33 @@ export default {
           texto:
             "A prova da EEAr possui o custo de 10 câmbios. Procure um Oficial Superior para realizá-la, podendo atingir até 3° Sargento. Estamos te esperando de braços abertos!",
         },
+        {
+          avatar:
+            "https://www.habbo.com.br/habbo-imaging/avatarimage?hb=image&user=Alex-Pearce&headonly=2&direction=2&head_direction=2&size=m",
+          autor: "Alex-Pearce",
+          tipo: "Aviso militar Global",
+          icone: "https://www.fab.mil.br/images/sistema/geral/gladio_80px.png",
+          texto:
+            "A prova da EEAr possui o custo de 10 câmbios. Procure um Oficial Superior para realizá-la, podendo atingir até 3° Sargento. Estamos te esperando de braços abertos!",
+        },
+        {
+          avatar:
+            "https://www.habbo.com.br/habbo-imaging/avatarimage?hb=image&user=Alex-Pearce&headonly=2&direction=2&head_direction=2&size=m",
+          autor: "Alex-Pearce",
+          tipo: "Aviso militar Global",
+          icone: "https://www.fab.mil.br/images/sistema/geral/gladio_80px.png",
+          texto:
+            "A prova da EEAr possui o custo de 10 câmbios. Procure um Oficial Superior para realizá-la, podendo atingir até 3° Sargento. Estamos te esperando de braços abertos!",
+        },
+        {
+          avatar:
+            "https://www.habbo.com.br/habbo-imaging/avatarimage?hb=image&user=Alex-Pearce&headonly=2&direction=2&head_direction=2&size=m",
+          autor: "Alex-Pearce",
+          tipo: "Aviso militar Global",
+          icone: "https://www.fab.mil.br/images/sistema/geral/gladio_80px.png",
+          texto:
+            "A prova da EEAr possui o custo de 10 câmbios. Procure um Oficial Superior para realizá-la, podendo atingir até 3° Sargento. Estamos te esperando de braços abertos!",
+        },
       ],
     };
   },

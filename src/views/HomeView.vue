@@ -25,9 +25,10 @@ import BoasVindas from "@/components/BoasVindas.vue";
 
           <div class="row">
             <Novidades />
+            <AcessoRapido />
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
           <div class="row">
             <Conteudos />
             <Informativos />
@@ -44,12 +45,6 @@ import BoasVindas from "@/components/BoasVindas.vue";
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <CorpoDeOficiais />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <AcessoRapido />
         </div>
       </div>
     </section>
