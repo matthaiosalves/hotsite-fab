@@ -91,6 +91,7 @@
               alt="Imagem do fardamento"
               width="auto"
               height="auto"
+              lazy="loading"
             />
           </div>
         </div>
@@ -117,6 +118,7 @@
               alt="Imagem do fardamento"
               width="auto"
               height="auto"
+              lazy="loading"
             />
           </div>
         </div>
