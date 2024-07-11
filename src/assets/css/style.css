@@ -243,7 +243,7 @@ main {
 
 .informativo .card {
   /* background-color: #5cc9ff !important; */
-  background-image: url(../assets/images/bg_blue.png);
+  background-image: url(../images/bg_blue.png);
   padding: 0 10px;
   text-align: start;
 }
