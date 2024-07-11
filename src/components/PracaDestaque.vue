@@ -54,7 +54,7 @@ export default {
       destaques: [
         {
           badgeImage:
-            "https://www.habbo.com.br/habbo-imaging/badge/b10054s36114s40014s42114s39114c0655ecc1d5780f98c2aceff273f9ca3.gif",
+            "https://www.habbo.com.br/habbo-imaging/badge/b10054s36014s42114s12117452baedfa58675485e3ea001a0eeccbe.gif",
           tooltip: "Ir a página de Praças",
           title: "Praça destaque",
           backgroundImage: "https://i.imgur.com/94ITkXn.png",
