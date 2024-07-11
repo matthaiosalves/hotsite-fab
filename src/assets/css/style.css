@@ -701,6 +701,31 @@ main {
   cursor: pointer;
 }
 
+.item .farda img {
+  margin-bottom: 2rem;
+}
+
+.item span {
+  font-size: 14pt;
+  font-weight: 700;
+}
+
+.item .card-header {
+  position: relative;
+  background-color: var(--bg-color-blue-Ofcourse);
+}
+
+.item .card-header img {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.item .card {
+  background-image: url(../images/bg_blue.png);
+  color: white;
+}
+
 footer {
   background-color: var(--bg-color-blue-dark);
   color: var(--color-text-white);

@@ -1,5 +1,5 @@
 <template>
-  <div class="fardamentos">
+  <div class="item">
     <div class="card">
       <div class="card-header">
         <span>Fardamentos da Força Aérea Brasileira</span>
@@ -210,43 +210,18 @@ export default {
 };
 </script>
 <style scoped>
-.fardamentos .farda {
+.item .farda {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.fardamentos .farda span {
+.item .farda span {
   background-color: var(--bg-color-blue-Ofcourse);
   text-align: center;
   border-radius: 5px;
   width: 170px;
   margin-bottom: 10px;
   font-size: 11pt;
-}
-
-.fardamentos .farda img {
-  margin-bottom: 2rem;
-}
-
-.fardamentos span {
-  font-size: 14pt;
-  font-weight: 700;
-}
-
-.fardamentos .card-header {
-  position: relative;
-  background-color: var(--bg-color-blue-Ofcourse);
-}
-
-.fardamentos .card-header img {
-  position: absolute;
-  top: 0;
-  right: 10px;
-}
-
-.fardamentos .card {
-  background-image: url(../assets/images/bg_blue.png);
-  color: white;
 }
 </style>

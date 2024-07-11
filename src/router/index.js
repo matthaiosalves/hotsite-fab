@@ -20,7 +20,7 @@ const routes = [
     }
   },
   {
-    path: '/fardamentos',
+    path: '/instituicao/fardamentos',
     name: 'Fardamentos',
     component: () => import('../views/FardamentosView.vue'),
     meta: {

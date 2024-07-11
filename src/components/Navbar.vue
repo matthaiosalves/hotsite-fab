@@ -31,7 +31,7 @@
             </router-link>
             <ul class="dropdown-menu">
               <li>
-                <router-link to="/fardamentos" class="dropdown-item">
+                <router-link to="/instituicao/fardamentos" class="dropdown-item">
                   Fardamentos
                 </router-link>
               </li>

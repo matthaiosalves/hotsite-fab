@@ -39,14 +39,14 @@ export default {
     return {
       acessosRapidos: [
         {
-          link: "/fardamentos",
+          link: "/instituicao/fardamentos",
           image: "https://www.fabhabbo.com/public/images/icons/uniform.png",
           text: "Fardamentos",
         },
         {
-          link: "#",
+          link: "/apostilas/peles-e-cabelos",
           image: "https://www.fabhabbo.com/public/images/icons/peles.png",
-          text: "Apostilas: peles e cabelos",
+          text: "Peles e cabelos",
         },
         {
           link: "#",
