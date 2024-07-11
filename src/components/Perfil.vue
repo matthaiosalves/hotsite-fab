@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item perfil">
     <div class="card" style="overflow: inherit">
       <div class="card-header">
         <h3>Perfil</h3>
@@ -214,6 +214,9 @@ export default {
 };
 </script>
 <style>
+.perfil .card-header {
+  border-bottom: none;
+}
 .grupos_habbo {
   position: absolute;
   right: 0;
