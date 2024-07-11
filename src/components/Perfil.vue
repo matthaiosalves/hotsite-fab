@@ -52,8 +52,16 @@
                       </div>
                       <div class="promovidoPorQuem">
                         <img
-                          src="https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&amp;user=Kloss&amp;direction=2&amp;head_direction=3&amp;size=s&amp;headonly=1"
+                          :src="
+                            '//www.habbo.com.br/habbo-imaging/avatarimage?user=' +
+                            user +
+                            '&direction=2&head_direction=3&size=s&headonly=1'
+                          "
                           style="margin: -5px"
+                          width="auto"
+                          height="auto"
+                          lazy="loading"
+                          class="img-fluid"
                         />
                         <span style="font-size: 12px">{{ user }}</span>
                       </div>
