@@ -28,18 +28,21 @@
               "
             >
               <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                  left: 0;
-                  border: 3px solid #1e94d9;
-                  border-radius: 5px;
-                  background-position: center top -30px;
-                  background-image: url(//www.habbo.com.br/habbo-imaging/avatarimage?user=Alex-Pearce&amp;direction=3&amp;head_direction=3&amp;size=l);
-                  background-repeat: no-repeat;
-                "
+                :style="{
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  left: 0,
+                  border: '3px solid #1e94d9',
+                  borderRadius: '5px',
+                  backgroundPosition: 'center top -30px',
+                  backgroundImage:
+                    'url(//www.habbo.com.br/habbo-imaging/avatarimage?user=' +
+                    user +
+                    '&direction=3&head_direction=3&size=l)',
+                  backgroundRepeat: 'no-repeat',
+                }"
               ></div>
             </div>
             <!-- FOTO DO PERFIL -->
@@ -61,7 +64,7 @@
 
             <!-- NOME PATENTE CP PROMOCAO -->
             <h1>
-              <strong>Alex-Pearce</strong>
+              <strong>{{ user }}</strong>
             </h1>
             <h3 style="text-transform: uppercase; color: #fff">MARECHAL-DO-AR</h3>
 
@@ -103,11 +106,15 @@
               <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
 
               <img
-                src="https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&amp;user=Alex-Pearce&amp;direction=2&amp;head_direction=3&amp;size=s&amp;headonly=1"
+                :src="
+                  'https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=gif&user=' +
+                  user +
+                  '&direction=2&head_direction=3&size=s&headonly=1'
+                "
                 style="margin: -5px"
               />
 
-              Alex-Pearce
+              {{ user }}
             </div>
             <!-- NOME PATENTE CP PROMOCAO -->
             <div class="row">
