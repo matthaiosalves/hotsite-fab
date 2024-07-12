@@ -3,7 +3,7 @@
     <div class="wrapper_footer_links">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md">
+          <div class="col-12">
             <div class="wrapper_footer_links_devs">
               <a :href="footerData.links[0].url">
                 <img
@@ -41,7 +41,7 @@
               <small> - {{ footerData.year }}</small>
             </div>
           </div>
-          <div class="col-6 col-md"></div>
+          <div class="col-12"></div>
         </div>
       </div>
     </div>
