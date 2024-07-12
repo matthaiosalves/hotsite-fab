@@ -49,13 +49,15 @@ export default {
   background: linear-gradient(
     100deg,
     var(--bg-color-blue-Ofcourse),
+    #3e9fd5,
     var(--bg-color-blue-Ofcourse),
-    var(--bg-color-blue-Ofcourse),
-    var(--bg-color-blue-Ofcourse)
+    #00446c
   );
+  background-size: 200% 100%;
   width: 100%;
   height: 100%;
   color: var(--color-text-white);
+  transition: background-position 0.5s ease;
 }
 .card--be-welcome div h2 {
   font-size: 31px;
