@@ -21,7 +21,7 @@
                     user +
                     '&direction=3&head_direction=3&size=l)',
                   backgroundRepeat: 'no-repeat',
-                  padding: '5px 15px',
+                  padding: '10px 15px',
                 }"
               >
                 <div class="boxInfo">
