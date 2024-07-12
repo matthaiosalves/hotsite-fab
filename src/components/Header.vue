@@ -20,16 +20,14 @@
       <div class="row">
         <div class="col-md-7">
           <div class="fab_logo_name">
-            <a
-              href="https://www.fabhabbo.com/"
-              style="text-decoration: none; color: white"
-            >
+            <a href="/" style="text-decoration: none; color: white">
               <img
                 src="https://www.fabhabbo.com/public/images/fab_aberto.gif"
                 alt="Logo da Força Aerea Habbo"
                 width="auto"
                 height="auto"
                 lazy="loading"
+                class="img-fluid"
               />
             </a>
             <div class="divisor"></div>

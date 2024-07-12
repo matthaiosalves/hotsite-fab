@@ -757,3 +757,9 @@ footer .wrapper_footer_infor a {
     margin-top: 15px;
   }
 }
+
+@media (max-width: 550px) {
+  .fab_logo_name h1 {
+    font-size: 1.7rem;
+  }
+}
