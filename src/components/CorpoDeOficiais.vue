@@ -36,98 +36,70 @@
 export default {
   name: "CorpoDeOficiais",
   data() {
-    const BASE_URL =
-      "https://www.habbo.com.br/habbo-imaging/avatarimage?&action=sit&direction=2&head_direction=3&img_format=gif&gesture=sml&frame=1&headonly=0&size=m";
-
-    const users = [
-      {
-        name: "Alex-Pearce",
-        rank: "Marechal-do-Ar ★★★★★",
-      },
-      {
-        name: "::Yashida",
-        rank: "Tenente-Brigadeiro ★★★★",
-      },
-      {
-        name: "LonaaCitan",
-        rank: "Major",
-      },
-      {
-        name: "Mascarenha",
-        rank: "Major",
-      },
-      {
-        name: "Zenitsu_l",
-        rank: "Major",
-      },
-      {
-        name: "felipeblu",
-        rank: "Capitão",
-      },
-      {
-        name: ".Apollo!",
-        rank: "Primeiro Tenente",
-      },
-      {
-        name: "barkk",
-        rank: "Primeiro Tenente",
-      },
-      {
-        name: "luizbethove",
-        rank: "Segundo Tenente",
-      },
-      {
-        name: "VIIPAZO",
-        rank: "Aspirante-a-Oficial",
-      },
-      {
-        name: "Eficientemente",
-        rank: "Aspirante-a-Oficial",
-      },
-      {
-        name: "danieljhim9",
-        rank: "Aspirante-a-Oficial",
-      },
-      {
-        name: "wosk",
-        rank: "Aspirante-a-Oficial",
-      },
-    ];
-
-    const getImageUrl = (userName) => `${BASE_URL}&user=${userName}`;
-
-    const rankGroups = [
-      {
-        rank: "Generais",
-        class: "generais",
-        users: users.filter(
-          (user) => user.rank.includes("Marechal") || user.rank.includes("Brigadeiro")
-        ),
-      },
-      {
-        rank: "Superiores",
-        class: "superiores",
-        users: users.filter((user) => user.rank.includes("Major")),
-      },
-      {
-        rank: "Intermediários",
-        class: "intermediarios",
-        users: users.filter((user) => user.rank.includes("Capitão")),
-      },
-      {
-        rank: "Subalternos",
-        class: "subalternos",
-        users: users.filter(
-          (user) => user.rank.includes("Tenente") || user.rank.includes("Aspirante")
-        ),
-      },
-    ];
-
     return {
-      users,
-      getImageUrl,
-      rankGroups,
+      BASE_URL:
+        "https://www.habbo.com.br/habbo-imaging/avatarimage?&action=sit&direction=2&head_direction=3&img_format=gif&gesture=sml&frame=1&headonly=0&size=m",
+      users: [],
+      rankGroups: [],
     };
+  },
+  methods: {
+    async fetchUsers() {
+      try {
+        const response = await fetch("https://fabhabbo.com/fetch/oficiais");
+        const fetchedUsers = await response.json();
+        const mappedUsers = fetchedUsers.map((user) => ({
+          name: user.nome,
+          rank: this.mapRank(user.cargo_id),
+        }));
+        this.rankGroups = [
+          {
+            rank: "Generais",
+            class: "generais",
+            users: mappedUsers.filter(
+              (user) => user.rank.includes("Marechal") || user.rank.includes("Brigadeiro")
+            ),
+          },
+          {
+            rank: "Superiores",
+            class: "superiores",
+            users: mappedUsers.filter((user) => user.rank.includes("Major")),
+          },
+          {
+            rank: "Intermediários",
+            class: "intermediarios",
+            users: mappedUsers.filter((user) => user.rank.includes("Capitão")),
+          },
+          {
+            rank: "Subalternos",
+            class: "subalternos",
+            users: mappedUsers.filter(
+              (user) => user.rank.includes("Tenente") || user.rank.includes("Aspirante")
+            ),
+          },
+        ];
+      } catch (error) {
+        console.error("Erro ao buscar usuários:", error);
+      }
+    },
+    mapRank(cargo_id) {
+      const ranks = {
+        1: "Marechal-do-Ar ★★★★★",
+        2: "Tenente-Brigadeiro ★★★★",
+        3: "Major",
+        4: "Capitão",
+        5: "Primeiro Tenente",
+        6: "Segundo Tenente",
+        7: "Aspirante-a-Oficial",
+      };
+      return ranks[cargo_id] || "Desconhecido";
+    },
+    getImageUrl(userName) {
+      return `${this.BASE_URL}&user=${userName}`;
+    },
+  },
+  created() {
+    this.fetchUsers();
   },
 };
 </script>
