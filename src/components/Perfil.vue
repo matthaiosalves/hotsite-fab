@@ -36,7 +36,7 @@
                   </div>
                   <div class="box">
                     <div class="boxStatus">
-                      <div class="status" :style="{ backgroundColor: '#008000' }">
+                      <div class="status" :style="{ backgroundColor: '#84cc16' }">
                         <strong>Ativo</strong>
                       </div>
                       <div class="status" :style="{ backgroundColor: '#facc15' }">
@@ -131,7 +131,7 @@ export default {
 }
 .perfil .boxCP {
   padding: 5px 15px;
-  background: #00446c;
+  background-color: var(--bg-color-blue-Ofcourse);
   border-radius: 20px;
 }
 .perfil .boxPatente {
