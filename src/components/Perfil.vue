@@ -73,7 +73,25 @@
           </div>
         </div>
 
-        <div class="row"></div>
+        <div class="row ListInfos">
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card boxCardInfo">
+              <div class="card-header"><h6 class="text-center">Emblemas</h6></div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card boxCardInfo">
+              <div class="card-header"><h6 class="text-center">Medalhas</h6></div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card boxCardInfo">
+              <div class="card-header"><h6 class="text-center">Histórico</h6></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -145,5 +163,19 @@ export default {
 .perfil .infosPromocao {
   margin-top: 15px;
   text-align: end;
+}
+.perfil .ListInfos {
+  margin-top: 15px;
+}
+.perfil .ListInfos .boxCardInfo {
+  background-color: var(--bg-color-blue-dark);
+  min-height: 120px;
+  max-width: 100%;
+  border-radius: 5px;
+  border: 3px solid rgb(30, 148, 217);
+  background-image: none;
+}
+.perfil .ListInfos .boxCardInfo .card-header {
+  border-radius: unset;
 }
 </style>
