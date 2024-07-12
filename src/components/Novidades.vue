@@ -253,9 +253,9 @@ export default {
     getStatusColor(status) {
       switch (status) {
         case 0:
-          return "#008000"; // Ativo
+          return "#d00000"; // Demitido
         case 1:
-          return "#d00000"; // Dispensado
+          return "#008000"; // Ativo
         case 2:
           return "#d00000"; // Traicao
         case 3:
