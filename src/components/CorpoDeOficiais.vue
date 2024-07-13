@@ -34,6 +34,7 @@
 
 <script>
 import axios from "axios";
+import { API_BASE_URL } from "@/../config.js";
 
 export default {
   name: "CorpoDeOficiais",
@@ -50,8 +51,9 @@ export default {
       return `${this.BASE_URL}&user=${userName}`;
     },
     fetchUsers() {
+      const apiUrl = `${API_BASE_URL}/fetch/oficiais`;
       axios
-        .get("https://fabhabbo.com/fetch/oficiais")
+        .get(apiUrl)
         .then((response) => {
           this.users = response.data.success.map((item) => ({
             name: item.alistado_nome,
