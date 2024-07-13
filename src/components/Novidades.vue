@@ -76,7 +76,7 @@
                 v-model="nickname"
                 placeholder="Digite o nickname do militar..."
               />
-              <button type="submit">
+              <button type="submit" aria-label="Buscar">
                 <i class="bi bi-search"></i>
               </button>
             </div>
