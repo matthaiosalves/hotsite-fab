@@ -27,7 +27,7 @@
           <img
             :src="informativo.icone"
             alt="Icone da Fab"
-            width="auto"
+            width="111"
             height="auto"
             lazy="loading"
           />

@@ -9,8 +9,8 @@
             data-bs-toggle="tooltip"
             data-bs-placement="bottom"
             :data-bs-title="destaque.tooltip"
-            width="auto"
-            height="auto"
+            width="45"
+            height="45"
             lazy="loading"
           />
         </router-link>
@@ -29,8 +29,8 @@
           <img
             :src="destaque.avatarImage"
             :alt="destaque.username"
-            width="auto"
-            height="auto"
+            width="128"
+            height="220"
             lazy="loading"
           />
           <div class="destaques-text">

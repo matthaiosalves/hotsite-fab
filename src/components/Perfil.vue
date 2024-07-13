@@ -28,8 +28,8 @@
                   <div class="boxPatente">
                     <img
                       src="https://i.postimg.cc/HxkSz9bG/Aspirante-FAB.png"
-                      width="auto"
-                      height="auto"
+                      width="120"
+                      height="57"
                       lazy="loading"
                       class="img-fluid"
                     />
@@ -58,8 +58,8 @@
                             '&direction=2&head_direction=3&size=s&headonly=1'
                           "
                           style="margin: -5px"
-                          width="auto"
-                          height="auto"
+                          width="27"
+                          height="30"
                           lazy="loading"
                           class="img-fluid"
                         />

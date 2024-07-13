@@ -1,5 +1,4 @@
 import './assets/css/style.css';
-import './assets/css/bootstrap-icons.min.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/nprogress.css';
 import './assets/plugins/bootstrap.bundle.min.js';

@@ -9,8 +9,8 @@
                 <img
                   :src="footerData.links[0].imageUrl"
                   :alt="footerData.links[0].altText"
-                  width="auto"
-                  height="auto"
+                  width="39"
+                  height="39"
                   lazy="loading"
                 />
               </a>

@@ -4,8 +4,8 @@
       <img
         src="https://www.fab.mil.br/images/sistema/geral/gladio_80px.png"
         alt="Brasão da Aeronáutica"
-        width="auto"
-        height="auto"
+        width="111"
+        height="78"
         lazy="loading"
       /><br /><span>Corpo de Oficiais</span>
     </div>
@@ -21,8 +21,8 @@
           <img
             :src="getImageUrl(user.name)"
             :alt="user.name"
-            width="auto"
-            height="auto"
+            width="64"
+            height="110"
             lazy="loading"
           />
         </router-link>

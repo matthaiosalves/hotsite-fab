@@ -6,8 +6,8 @@
         <img
           src="https://www.fabhabbo.com/public/images/icons/uniform.png"
           alt="Icone do uniforme"
-          width="auto"
-          height="auto"
+          width="40"
+          height="52"
           lazy="loading"
         />
       </div>
@@ -22,8 +22,8 @@
             <img
               :src="farda.image"
               alt="Imagem do fardamento"
-              width="auto"
-              height="auto"
+              width="185"
+              height="168"
               lazy="loading"
             />
           </div>
@@ -36,8 +36,8 @@
             <img
               :src="farda.image"
               alt="Imagem do fardamento"
-              width="auto"
-              height="auto"
+              width="185"
+              height="168"
               lazy="loading"
             />
           </div>
@@ -63,8 +63,8 @@
             <img
               :src="farda.image"
               alt="Imagem do fardamento"
-              width="auto"
-              height="auto"
+              width="185"
+              height="168"
               lazy="loading"
             />
           </div>
@@ -90,8 +90,8 @@
             <img
               :src="farda.image"
               alt="Imagem do fardamento"
-              width="auto"
-              height="auto"
+              width="185"
+              height="168"
               lazy="loading"
             />
           </div>
@@ -117,8 +117,8 @@
             <img
               :src="farda.image"
               alt="Imagem do fardamento"
-              width="auto"
-              height="auto"
+              width="185"
+              height="168"
               lazy="loading"
             />
           </div>

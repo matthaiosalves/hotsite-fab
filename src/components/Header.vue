@@ -24,8 +24,8 @@
               <img
                 src="https://www.fabhabbo.com/public/images/fab_aberto.gif"
                 alt="Logo da Força Aerea Habbo"
-                width="auto"
-                height="auto"
+                width="133"
+                height="133"
                 lazy="loading"
                 class="img-fluid"
               />

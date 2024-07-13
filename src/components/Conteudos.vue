@@ -8,8 +8,8 @@
             <img
               :src="item.imagem"
               alt="Imagem do conteúdo"
-              width="auto"
-              height="auto"
+              width="39"
+              height="39"
               lazy="loading"
             />
             <div>
