@@ -51,13 +51,13 @@ export default {
       return `${this.BASE_URL}&user=${userName}`;
     },
     fetchUsers() {
-      const apiUrl = `${API_BASE_URL}/fetch/oficiais`;
+      const apiUrl = `${API_BASE_URL}/api/alistados/oficiais`;
       axios
         .get(apiUrl)
         .then((response) => {
-          this.users = response.data.success.map((item) => ({
-            name: item.alistado_nome,
-            rank: item.patente_nome,
+          this.users = response.data.map((item) => ({
+            name: item.nome,
+            rank: item.patente,
           }));
           this.groupUsersByRank();
         })
