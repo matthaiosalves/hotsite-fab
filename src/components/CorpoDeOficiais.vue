@@ -56,6 +56,7 @@ export default {
         .get(apiUrl)
         .then((response) => {
           this.users = response.data.map((item) => ({
+            id: item.patente_id,
             name: item.nome,
             rank: item.patente,
           }));
@@ -66,34 +67,36 @@ export default {
         });
     },
     groupUsersByRank() {
+      const generaisIds = [1, 2, 3, 4];
+      const superioresIds = [5, 6, 7];
+      const intermediariosIds = [8];
+      const subalternosIds = [9, 10, 11];
+
       this.rankGroups = [
         {
           rank: "Generais",
           class: "generais",
-          users: this.users.filter(
-            (user) => user.rank.includes("Marechal") || user.rank.includes("Brigadeiro")
-          ),
+          users: this.users.filter((user) => generaisIds.includes(user.id)),
         },
         {
           rank: "Superiores",
           class: "superiores",
-          users: this.users.filter((user) => user.rank.includes("Major")),
+          users: this.users.filter((user) => superioresIds.includes(user.id)),
         },
         {
           rank: "Intermediários",
           class: "intermediarios",
-          users: this.users.filter((user) => user.rank.includes("Capitão")),
+          users: this.users.filter((user) => intermediariosIds.includes(user.id)),
         },
         {
           rank: "Subalternos",
           class: "subalternos",
-          users: this.users.filter(
-            (user) => user.rank.includes("Tenente") || user.rank.includes("Aspirante")
-          ),
+          users: this.users.filter((user) => subalternosIds.includes(user.id)),
         },
       ];
     },
   },
+
   created() {
     this.fetchUsers();
   },
