@@ -44,6 +44,8 @@ export default {
       rankGroups: [],
       BASE_URL:
         "https://www.habbo.com.br/habbo-imaging/avatarimage?&action=sit&direction=2&head_direction=3&img_format=gif&gesture=sml&frame=1&headonly=0&size=m",
+      CACHE_KEY: "corpoDeOficiaisCache",
+      CACHE_DURATION: 1000 * 60 * 60 * 24, // 24 hours
     };
   },
   methods: {
@@ -51,16 +53,23 @@ export default {
       return `${this.BASE_URL}&user=${userName}`;
     },
     fetchUsers() {
+      console.log("Fetching users from API...");
       const apiUrl = `${API_BASE_URL}/api/alistados/oficiais`;
       axios
         .get(apiUrl)
         .then((response) => {
-          this.users = response.data.map((item) => ({
-            id: item.patente_id,
-            name: item.nome,
-            rank: item.patente,
-          }));
+          const data = {
+            timestamp: new Date().getTime(),
+            users: response.data.map((item) => ({
+              id: item.patente_id,
+              name: item.nome,
+              rank: item.patente,
+            })),
+          };
+          localStorage.setItem(this.CACHE_KEY, JSON.stringify(data));
+          this.users = data.users;
           this.groupUsersByRank();
+          console.log("Data fetched and stored in cache:", data);
         })
         .catch((error) => {
           console.error("Erro ao buscar os dados:", error);
@@ -95,10 +104,27 @@ export default {
         },
       ];
     },
+    loadUsers() {
+      const cache = localStorage.getItem(this.CACHE_KEY);
+      if (cache) {
+        const data = JSON.parse(cache);
+        const now = new Date().getTime();
+        if (now - data.timestamp < this.CACHE_DURATION) {
+          this.users = data.users;
+          this.groupUsersByRank();
+          // console.log("Loaded users from cache:", data.users);
+          return;
+        } else {
+          // console.log("Cache expired, fetching new data...");
+        }
+      } else {
+        // console.log("No cache found, fetching new data...");
+      }
+      this.fetchUsers();
+    },
   },
-
   created() {
-    this.fetchUsers();
+    this.loadUsers();
   },
 };
 </script>
