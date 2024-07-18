@@ -4,7 +4,7 @@
       <div class="card-header">
         <span>Fardamentos da Força Aérea Brasileira</span>
         <img
-          src="https://www.fabhabbo.com/public/images/icons/uniform.png"
+          src="https://api.fabhabbo.com/public/images/icons/uniform.png"
           alt="Icone do uniforme"
           width="40"
           height="52"
@@ -135,74 +135,74 @@ export default {
       fardamentos: [
         {
           nome: "Recruta",
-          image: "https://www.fabhabbo.com/public/images/uniforms/recruta.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/recruta.png",
         },
         {
           nome: "Soldado a SubOficial",
-          image: "https://www.fabhabbo.com/public/images/uniforms/praca.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/praca.png",
         },
         {
           nome: "EEAR Aluno",
-          image: "https://www.fabhabbo.com/public/images/uniforms/eear.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/eear.png",
         },
         {
           nome: "EPCAR Aluno",
-          image: "https://www.fabhabbo.com/public/images/uniforms/epcar.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/epcar.png",
         },
         {
           nome: "AFA Cadete",
-          image: "https://www.fabhabbo.com/public/images/uniforms/afa.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/afa.png",
         },
         {
           nome: "Aspirante-a-Oficial",
-          image: "https://www.fabhabbo.com/public/images/uniforms/aspirante.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/aspirante.png",
         },
         {
           nome: "Oficial",
-          image: "https://www.fabhabbo.com/public/images/uniforms/oficial.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/oficial.png",
         },
         {
           nome: "Alto Comando",
-          image: "https://www.fabhabbo.com/public/images/uniforms/alto_comando.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/alto_comando.png",
         },
         {
           nome: "Aposentados",
-          image: "https://www.fabhabbo.com/public/images/uniforms/oficial.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/oficial.png",
         },
         {
           nome: "Ex-Comandantes",
-          image: "https://www.fabhabbo.com/public/images/uniforms/ministros.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/ministros.png",
         },
       ],
       fardamentosLuto: [
         {
           nome: "Luto Praça",
-          image: "https://www.fabhabbo.com/public/images/uniforms/luto_praca.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/luto_praca.png",
         },
         {
           nome: "Luto Oficial",
-          image: "https://www.fabhabbo.com/public/images/uniforms/luto_oficial.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/luto_oficial.png",
         },
       ],
       fardamentosMinistros: [
         {
           nome: "Normal",
-          image: "https://www.fabhabbo.com/public/images/uniforms/ministros.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/ministros.png",
         },
         {
           nome: "Opcional",
-          image: "https://www.fabhabbo.com/public/images/uniforms/ministrosOptional.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/ministrosOptional.png",
         },
       ],
       fardamentosPatrocinadores: [
         {
           nome: "Praças",
-          image: "https://www.fabhabbo.com/public/images/uniforms/patrocinadores.png",
+          image: "https://api.fabhabbo.com/public/images/uniforms/patrocinadores.png",
         },
         {
           nome: "Opcional",
           image:
-            "https://www.fabhabbo.com/public/images/uniforms/patrocinadoresOptional.png",
+            "https://api.fabhabbo.com/public/images/uniforms/patrocinadoresOptional.png",
         },
       ],
     };

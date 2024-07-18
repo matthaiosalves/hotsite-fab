@@ -72,7 +72,7 @@ header {
   padding: 12px 0;
   background-size: cover;
   background-image: linear-gradient(207deg, #47ade100 0%, #47ade1 50%),
-    url(https://www.fabhabbo.com/public/images/bg.png);
+    url(https://api.fabhabbo.com/public/images/bg.png);
 }
 @keyframes rotate {
   from {

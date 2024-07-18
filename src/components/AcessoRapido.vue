@@ -40,13 +40,13 @@ export default {
       acessosRapidos: [
         {
           link: "/instituicao/fardamentos",
-          image: "https://www.fabhabbo.com/public/images/icons/uniform.png",
+          image: "https://api.fabhabbo.com/public/images/icons/uniform.png",
           text: "Fardamentos",
           alt: "Ícone que representa - Fardamentos",
         },
         {
           link: "/apostilas/peles-e-cabelos",
-          image: "https://www.fabhabbo.com/public/images/icons/peles.png",
+          image: "https://api.fabhabbo.com/public/images/icons/peles.png",
           text: "Peles e cabelos",
           alt: "Ícone que representa - Peles e cabelos",
         },
