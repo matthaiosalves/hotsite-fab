@@ -69,7 +69,7 @@ export default {
           localStorage.setItem(this.CACHE_KEY, JSON.stringify(data));
           this.users = data.users;
           this.groupUsersByRank();
-          console.log("Data fetched and stored in cache:", data);
+          // console.log("Data fetched and stored in cache:", data);
         })
         .catch((error) => {
           console.error("Erro ao buscar os dados:", error);
