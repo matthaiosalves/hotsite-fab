@@ -53,7 +53,7 @@ export default {
       return `${this.BASE_URL}&user=${userName}`;
     },
     fetchUsers() {
-      console.log("Fetching users from API...");
+      // console.log("Fetching users from API...");
       const apiUrl = `${API_BASE_URL}/api/alistados/oficiais`;
       axios
         .get(apiUrl)
