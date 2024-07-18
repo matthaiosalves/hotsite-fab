@@ -68,6 +68,7 @@
       </div>
 
       <div class="card-footer">
+        <!-- Formulário para buscar o usuário -->
         <form id="buscar" @submit.prevent="handleSubmit">
           <div class="container" style="line-height: 1.1">
             <div class="buscar-input-nickname">
@@ -82,6 +83,13 @@
             </div>
           </div>
         </form>
+
+        <!-- Spinner de carregamento -->
+        <div v-if="isLoading" class="d-flex justify-content-center mt-3">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+        </div>
 
         <!-- Resultado -->
         <div id="buscar-content" v-if="showResultado" class="mt-3">
@@ -109,13 +117,11 @@
               <!-- Informações à direita -->
               <h3 class="mb-3">{{ System.name }}</h3>
               <p>
-                <strong>Patente:</strong>
-                <span>{{
-                  System.patente ? System.patente : "Militar não alistado"
-                }}</span>
+                <strong>Patente: </strong>
+                <span>{{ System.rank ? System.rank : "Militar não alistado" }}</span>
               </p>
               <p>
-                <strong>Alistado:</strong>
+                <strong>Alistado: </strong>
                 <span>{{
                   System.data_alistamento
                     ? formatDate(System.data_alistamento).data
@@ -123,7 +129,7 @@
                 }}</span>
               </p>
               <p>
-                <strong>Última promoção:</strong>
+                <strong>Última promoção: </strong>
                 <span>{{
                   System.ultima_promocao
                     ? formatDate(System.ultima_promocao).data
@@ -131,16 +137,14 @@
                 }}</span>
               </p>
               <p>
-                <strong>Promovido por:</strong>
+                <strong>Promovido por: </strong>
                 <router-link :to="promovidoPorUrl">{{
                   System.promovido_por
                 }}</router-link>
               </p>
               <p>
-                <strong>Status:</strong>
-                <span :style="{ backgroundColor: statusColor }">{{
-                  System.status_descricao
-                }}</span>
+                <strong>Status: </strong>
+                <span :class="['badge', statusColor]">{{ System.status }}</span>
               </p>
             </div>
           </div>
@@ -151,6 +155,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import { API_BASE_URL } from "@/../config.js";
 export default {
   name: "Novidades",
   data() {
@@ -158,6 +164,7 @@ export default {
       nickname: "",
       System: {},
       showResultado: false,
+      isLoading: false,
       avatarUrl: "",
       profileUrl: "",
       promovidoPorUrl: "",
@@ -182,69 +189,46 @@ export default {
     };
   },
   methods: {
-    // handleSubmit() {
-    //   const APP_URL = "https://www.fabhabbo.com";
-    //   const url = new URL(`${APP_URL}/fetch/alistado`);
-    //   url.searchParams.append("name", this.nickname);
-
-    //   fetch(url, {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //     .then((response) => {
-    //       if (!response.ok) {
-    //         throw new Error("Erro na requisição");
-    //       }
-    //       return response.json();
-    //     })
-    //     .then((dados) => {
-    //       if (dados.error) {
-    //         throw new Error(dados.error);
-    //       }
-    //       this.System = dados.success;
-    //       this.avatarUrl = `http://www.habbo.com.br/habbo-imaging/avatarimage?&user=${this.System.name}&action=std&direction=3&head_direction=3&img_format=png&gesture=std&frame=1&headonly=0&size=l`;
-    //       this.profileUrl = `${APP_URL}/profile/${this.System.name}`;
-    //       this.promovidoPorUrl = `${APP_URL}/profile/${this.System.promovido_por}`;
-    //       this.statusColor = this.getStatusColor(this.System.status);
-    //       this.showResultado = true;
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
-    // },
-
     handleSubmit() {
-      const APP_URL = "https://www.fabhabbo.com";
-      fetch(`${APP_URL}/fetch/alistado`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          name: this.nickname,
-        }),
-      })
+      this.isLoading = true;
+      const APP_URL = API_BASE_URL;
+      const apiUrl = `${APP_URL}/api/alistado?name=${this.nickname}`;
+
+      axios
+        .get(apiUrl)
         .then((response) => {
-          if (!response.ok) {
-            throw new Error("Erro na requisição");
-          }
-          return response.json();
-        })
-        .then((dados) => {
+          const dados = response.data;
+
           if (dados.error) {
             throw new Error(dados.error);
           }
-          this.System = dados.success;
+
+          const user = dados;
+          this.System = {
+            name: user.apelido,
+            rank: user.patente,
+            status: user.status,
+            sigla: user.sigla,
+            treinamento: user.treinamento,
+            moedasAtual: user.moedasAtual,
+            data_alistamento: user.alistamento,
+            ultima_promocao: user.promocao,
+            promovido_por: user.promovido,
+          };
+
           this.avatarUrl = `http://www.habbo.com.br/habbo-imaging/avatarimage?&user=${this.System.name}&action=std&direction=3&head_direction=3&img_format=png&gesture=std&frame=1&headonly=0&size=l`;
-          this.profileUrl = `${APP_URL}/profile/${this.System.name}`;
-          this.promovidoPorUrl = `${APP_URL}/profile/${this.System.promovido_por}`;
+          this.profileUrl = `/perfil/${this.System.name}`;
+          this.promovidoPorUrl = `/perfil/${this.System.name}`
+            ? `/perfil/${this.System.name}`
+            : "";
           this.statusColor = this.getStatusColor(this.System.status);
           this.showResultado = true;
         })
         .catch((err) => {
           console.error(err);
+        })
+        .finally(() => {
+          this.isLoading = false;
         });
     },
     closeResultado() {
@@ -252,10 +236,10 @@ export default {
     },
     getStatusColor(status) {
       switch (status) {
-        case 0:
-          return "#d00000"; // Demitido
-        case 1:
-          return "#008000"; // Ativo
+        case "Demitido":
+          return "bg-danger"; // Demitido
+        case "Ativo":
+          return "bg-success"; // Ativo
         case 2:
           return "#d00000"; // Traicao
         case 3:
@@ -292,3 +276,10 @@ export default {
   },
 };
 </script>
+
+<style>
+a {
+  color: #fff;
+  text-decoration: none;
+}
+</style>
