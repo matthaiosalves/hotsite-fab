@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { API_BASE_URL } from "@/../config.js";
 export default {
   name: "HeaderTwo",
   data() {

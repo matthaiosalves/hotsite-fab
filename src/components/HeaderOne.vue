@@ -19,7 +19,7 @@
     <div class="container">
       <div class="d-flex flex-column align-items-center">
         <img
-          src="https://fabhabbo.com/public/images/logo_aberto.png"
+          :src="`${API_BASE_URL}/public/images/logo_aberto.png`"
           alt="Icone do grupo aberto da Forca Aerea"
           style="transform: scale(0.8)"
           width="402"
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { API_BASE_URL } from "@/../config.js";
 export default {
   name: "HeaderOne",
   data() {
