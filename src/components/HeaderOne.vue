@@ -44,18 +44,7 @@ export default {
         <h1 class="logo_aberto" :class="{ fadeIn: fadeInText }">
           Força Aérea Brasileira
         </h1>
-        <span
-          :class="{ fadeIn: fadeInText }"
-          style="
-            font-family: Titillium Web;
-            color: rgb(255, 255, 255);
-            line-height: 1.2;
-            text-align: left;
-            margin-top: -5px;
-            font-size: 18px;
-          "
-          >Asas que protegem nosso país!</span
-        >
+        <span :class="{ fadeIn: fadeInText }">Asas que protegem nosso país!</span>
       </div>
     </div>
   </header>

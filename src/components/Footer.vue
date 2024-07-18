@@ -69,7 +69,7 @@ export default {
       footerData: {
         links: [
           {
-            url: "https://api.fabhabbo.com/",
+            url: "https://fabhabbo.com/",
             imageUrl:
               "https://www.habbo.com.br/habbo-imaging/badge/b24054s02014s12114s2706403d32b6b84ee103306ec256bb91bdacc.gif",
             altText: "Emblema da Força Aérea Brasileira",
