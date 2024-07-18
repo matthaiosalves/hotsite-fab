@@ -74,19 +74,19 @@
         </div>
 
         <div class="row ListInfos">
-          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Emblemas</h6></div>
             </div>
           </div>
 
-          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Medalhas</h6></div>
             </div>
           </div>
 
-          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Histórico</h6></div>
             </div>
