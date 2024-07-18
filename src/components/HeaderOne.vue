@@ -1,3 +1,18 @@
+<script>
+export default {
+  name: "HeaderOne",
+  data() {
+    return {
+      rotateImage: false,
+      fadeInText: false,
+    };
+  },
+  mounted() {
+    this.rotateImage = true;
+    this.fadeInText = true;
+  },
+};
+</script>
 <template>
   <div class="wrapper_brasilflag">
     <div class="container">
@@ -19,7 +34,7 @@
     <div class="container">
       <div class="d-flex flex-column align-items-center">
         <img
-          :src="`${API_BASE_URL}/public/images/logo_aberto.png`"
+          src="https://api.fabhabbo.com/public/images/logo_aberto.png"
           alt="Icone do grupo aberto da Forca Aerea"
           style="transform: scale(0.8)"
           width="402"
@@ -45,24 +60,6 @@
     </div>
   </header>
 </template>
-
-<script>
-import { API_BASE_URL } from "@/../config.js";
-export default {
-  name: "HeaderOne",
-  data() {
-    return {
-      rotateImage: false,
-      fadeInText: false,
-    };
-  },
-  mounted() {
-    this.rotateImage = true;
-    this.fadeInText = true;
-  },
-};
-</script>
-
 <style scoped>
 header {
   color: var(--color-text-white);

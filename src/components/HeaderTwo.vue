@@ -23,7 +23,7 @@
             <a href="/" style="text-decoration: none; color: white">
               <img
                 :class="{ rotate: rotateImage }"
-                :src="`${API_BASE_URL}/public/images/fab_aberto.gif`"
+                src="https://api.fabhabbo.com/public/images/fab_aberto.gif"
                 alt="Logo da Força Aerea Habbo"
                 width="133"
                 height="133"
@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import { API_BASE_URL } from "@/../config.js";
 export default {
   name: "HeaderTwo",
   data() {
