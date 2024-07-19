@@ -8,7 +8,7 @@ const routes = [
     name: 'inicio',
     component: HomeView,
     meta: {
-      title: 'Início'
+      title: 'Página Inicial'
     }
   },
   {
@@ -52,8 +52,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const baseTitle = 'Força Aérea Brasileira Habbo';
-  document.title = `${baseTitle} - ${to.meta.title || ''}`;
+  const baseTitle = 'Força Aérea Brasileira';
+  document.title = `${to.meta.title || ''} - ${baseTitle}`;
   window.scrollTo(0, 0);
   NProgress.start();
   next();
