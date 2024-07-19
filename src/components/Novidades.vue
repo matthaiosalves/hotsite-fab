@@ -109,9 +109,9 @@
                   lazy="loading"
                 />
               </div>
-              <router-link :to="profileUrl" class="mt-2 btn btn-primary"
-                >Ver Perfil</router-link
-              >
+              <router-link :to="profileUrl" class="mt-2 btn btn-primary">
+                Ver Perfil
+              </router-link>
             </div>
             <div class="col-md-8">
               <!-- Informações à direita -->
@@ -122,19 +122,23 @@
               </p>
               <p>
                 <strong>Alistado: </strong>
-                <span>{{
-                  System.data_alistamento
-                    ? formatDate(System.data_alistamento).data
-                    : "Não alistado"
-                }}</span>
+                <span>
+                  {{
+                    System.data_alistamento
+                      ? formatDate(System.data_alistamento).data
+                      : "Não alistado"
+                  }}
+                </span>
               </p>
               <p>
                 <strong>Última promoção: </strong>
-                <span>{{
-                  System.ultima_promocao
-                    ? formatDate(System.ultima_promocao).data
-                    : "Sem promoção"
-                }}</span>
+                <span>
+                  {{
+                    System.ultima_promocao
+                      ? formatDate(System.ultima_promocao).data
+                      : "Sem promoção"
+                  }}
+                </span>
               </p>
               <p>
                 <strong>Promovido por: </strong>
@@ -148,6 +152,10 @@
               </p>
             </div>
           </div>
+        </div>
+        <!-- Mensagem de erro -->
+        <div v-if="error" class="mt-3 alert alert-danger">
+          {{ error }}
         </div>
       </div>
     </div>
@@ -186,13 +194,16 @@ export default {
           tooltip: "Ir a página...",
         },
       ],
+      error: "",
     };
   },
   methods: {
     handleSubmit() {
       this.isLoading = true;
+      this.showResultado = false;
+      this.error = "";
       const APP_URL = API_BASE_URL;
-      const apiUrl = `${APP_URL}/api/alistado?name=${this.nickname}`;
+      const apiUrl = `${APP_URL}/api/alistado?name=${this.nickname.trim()}`;
 
       axios
         .get(apiUrl)
@@ -200,6 +211,7 @@ export default {
           const dados = response.data;
 
           if (dados.error) {
+            this.error = "Busca inválida ou militar não encontrado.";
             throw new Error(dados.error);
           }
 
@@ -225,6 +237,12 @@ export default {
           this.showResultado = true;
         })
         .catch((err) => {
+          if (err.response && err.response.status === 500) {
+            this.error =
+              "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
+          } else {
+            this.error = "Erro ao buscar dados. Verifique o nome e tente novamente.";
+          }
           console.error(err);
         })
         .finally(() => {
