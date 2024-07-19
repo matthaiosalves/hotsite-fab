@@ -27,7 +27,7 @@
                 <div class="boxInfo">
                   <div class="boxPatente">
                     <img
-                      src="https://i.postimg.cc/HxkSz9bG/Aspirante-FAB.png"
+                      :src="profile.patente_img"
                       width="120"
                       height="57"
                       lazy="loading"
@@ -36,25 +36,41 @@
                   </div>
                   <div class="box">
                     <div class="boxStatus">
-                      <div class="status" :style="{ backgroundColor: '#84cc16' }">
-                        <strong>Ativo</strong>
+                      <div
+                        class="status"
+                        :style="{
+                          backgroundColor:
+                            profile.status === 'Ativo' ? '#84cc16' : '#facc15',
+                        }"
+                      >
+                        <strong>{{ profile.status }}</strong>
                       </div>
-                      <div class="status" :style="{ backgroundColor: '#facc15' }">
+
+                      <div
+                        v-if="profile.patrocinador"
+                        class="status"
+                        :style="{ backgroundColor: '#facc15' }"
+                      >
                         <strong>Patrocinador</strong>
                       </div>
-                      <div class="boxCP"><strong>2ª CP</strong></div>
+
+                      <div v-if="profile.sigla" class="boxCP">
+                        <strong>{{ profile.sigla || "N/A" }}</strong>
+                      </div>
                     </div>
 
                     <div class="infosPromocao">
                       <div class="data" style="font-size: 12px">
                         última promoção<br />
-                        <span style="font-size: 12px">11/11/2011</span>
+                        <span style="font-size: 12px">{{
+                          formatDate(profile.promocao)
+                        }}</span>
                       </div>
                       <div class="promovidoPorQuem">
                         <img
                           :src="
                             '//www.habbo.com.br/habbo-imaging/avatarimage?user=' +
-                            user +
+                            profile.promovido +
                             '&direction=2&head_direction=3&size=s&headonly=1'
                           "
                           style="margin: -5px"
@@ -63,7 +79,7 @@
                           lazy="loading"
                           class="img-fluid"
                         />
-                        <span style="font-size: 12px">{{ user }}</span>
+                        <span style="font-size: 12px">{{ profile.promovido }}</span>
                       </div>
                     </div>
                   </div>
@@ -77,18 +93,27 @@
           <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Emblemas</h6></div>
+              <div class="mt-3 text-center">
+                {{ profile.emblemas || "Não há registros" }}
+              </div>
             </div>
           </div>
 
           <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Medalhas</h6></div>
+              <div class="mt-3 text-center">
+                {{ profile.medalhas || "Não há registros" }}
+              </div>
             </div>
           </div>
 
           <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
             <div class="card boxCardInfo">
               <div class="card-header"><h6 class="text-center">Histórico</h6></div>
+              <div class="mt-3 text-center">
+                {{ profile.historico || "Não há registros" }}
+              </div>
             </div>
           </div>
         </div>
@@ -98,6 +123,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { API_BASE_URL } from "@/../config.js";
+
 export default {
   name: "Perfil",
   props: {
@@ -106,9 +134,41 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      profile: {},
+      error: null,
+    };
+  },
+  watch: {
+    user: {
+      immediate: true,
+      handler(newUser) {
+        this.fetchProfile(newUser);
+      },
+    },
+  },
+  methods: {
+    async fetchProfile(user) {
+      this.error = null;
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/alistado?name=${user}`);
+        this.profile = response.data;
+      } catch (error) {
+        this.error = "Erro ao carregar perfil";
+      }
+    },
+    formatDate(dateString) {
+      if (!dateString) return "";
+      const [date] = dateString.split(" ");
+      const [year, month, day] = date.split("-");
+      return `${day}/${month}/${year}`;
+    },
+  },
 };
 </script>
-<style>
+
+<style scoped>
 .perfil .card-body {
   background: linear-gradient(rgb(71 173 225) 5%, rgb(71 173 225) 25%);
   color: #fff;
@@ -134,6 +194,7 @@ export default {
 .perfil .boxStatus {
   display: flex;
   gap: 5px;
+  justify-content: end;
 }
 .perfil .status {
   max-width: fit-content;
@@ -144,7 +205,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 12px;
 }
 .perfil .boxCP {
