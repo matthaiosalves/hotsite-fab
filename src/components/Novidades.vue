@@ -239,10 +239,11 @@ export default {
         .catch((err) => {
           if (err.response) {
             if (err.response.status === 404) {
-              this.error = "Militar não encontrado.";
+              this.error = "Militar não encontrado. Verifique o nome e tente novamente.";
             } else if (err.response.status === 500) {
-              this.error =
-                "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
+              // this.error =
+              //   "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
+              this.error = "Militar não encontrado. Verifique o nome e tente novamente.";
             } else {
               this.error = "Erro ao buscar dados. Verifique o nome e tente novamente.";
             }
