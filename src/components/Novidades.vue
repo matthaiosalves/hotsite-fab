@@ -237,11 +237,17 @@ export default {
           this.showResultado = true;
         })
         .catch((err) => {
-          if (err.response && err.response.status === 500) {
-            this.error =
-              "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
+          if (err.response) {
+            if (err.response.status === 404) {
+              this.error = "Militar não encontrado.";
+            } else if (err.response.status === 500) {
+              this.error =
+                "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
+            } else {
+              this.error = "Erro ao buscar dados. Verifique o nome e tente novamente.";
+            }
           } else {
-            this.error = "Erro ao buscar dados. Verifique o nome e tente novamente.";
+            this.error = "Erro de conexão. Verifique sua internet e tente novamente.";
           }
           console.error(err);
         })
