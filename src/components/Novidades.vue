@@ -113,7 +113,7 @@
                 Ver Perfil
               </router-link>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 boxInfoRight">
               <!-- Informações à direita -->
               <h3 class="mb-3">{{ System.name }}</h3>
               <p>
@@ -230,8 +230,8 @@ export default {
 
           this.avatarUrl = `http://www.habbo.com.br/habbo-imaging/avatarimage?&user=${this.System.name}&action=std&direction=3&head_direction=3&img_format=png&gesture=std&frame=1&headonly=0&size=l`;
           this.profileUrl = `/perfil/${this.System.name}`;
-          this.promovidoPorUrl = `/perfil/${this.System.name}`
-            ? `/perfil/${this.System.name}`
+          this.promovidoPorUrl = `/perfil/${this.System.promovido_por}`
+            ? `/perfil/${this.System.promovido_por}`
             : "";
           this.statusColor = this.getStatusColor(this.System.status);
           this.showResultado = true;
@@ -306,5 +306,8 @@ export default {
 a {
   color: #fff;
   text-decoration: none;
+}
+.boxInfoRight p {
+  margin-bottom: 0;
 }
 </style>
